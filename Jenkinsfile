@@ -88,7 +88,7 @@ pipeline{
                     url: 'https://github.com/Jooahru/k8s-manifests.git'
                     sh "git config --global user.email dndlf333@naver.com"
                     sh "git config --global user.name WOOIL KIM"
-                    sh "sed -i 's/torpedokim/helloWorld:.*\$/torpedokim/helloWorld:${currentBuild.number}/' deployment.yaml"
+                    sh "sed -i 's|image: torpedokim/helloWorld:[0-9]*$|image: torpedokim/helloWorld:'"${currentBuild.number}"'|' deployment.yaml"
                     sh "git add deployment.yaml"
                     sh "git commit -m '[UPDATE] k8s ${currentBuild.number} image versioning'"
                     
