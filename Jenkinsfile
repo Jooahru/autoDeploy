@@ -76,7 +76,7 @@ pipeline{
                     }
             }
         }
- // 5. 쿠버네티스 배포 작업
+ // 5. 쿠버네티스 배포 작업2
         stage('K8S Manifest Update') {
             steps {
                 sh "ls"
