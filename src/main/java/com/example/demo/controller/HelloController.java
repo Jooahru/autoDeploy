@@ -19,7 +19,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String helloWorld() {
-        return "HelloWorld from" + env.getProperty("HOSTNAME");
+        return "HelloWorld version1 from" + env.getProperty("HOSTNAME");
     }
     @Autowired
     private RestTemplate restTemplate;
