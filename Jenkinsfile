@@ -85,7 +85,7 @@ pipeline{
                 {
                     git branch: "main",
                     credentialsId: githubCredential,
-                    url: 'https://github.com/dongjucloud/kube-manifests.git' 
+                    url: 'https://github.com/Jooahru/k8s-manifests.git'
                     sh "git config --global user.email dndlf333@naver.com"
                     sh "git config --global user.name WOOIL KIM"
                     sh "sed -i 's/docker:.*\$/docker:${currentBuild.number}/' deployment.yaml"
