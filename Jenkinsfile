@@ -25,7 +25,7 @@ pipeline{
 
         stage('build gradle') {
             steps {
-                sh 'sudo chmod +x demo/gradlew'
+                sh 'sudo chmod +x ./gradlew'
                 sh 'sudo ./gradlew build'
                 sh 'ls -al ./build'
             }
