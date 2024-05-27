@@ -38,7 +38,7 @@ pipeline{
                 }
             }
         }
-// 3. Dockefile build2
+// 3. Dockefile build
         stage('docker image build'){
             steps{
                 sh "docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
