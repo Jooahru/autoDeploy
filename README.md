@@ -1,2 +1,0 @@
-# autoDeploy
-auto-deploy
