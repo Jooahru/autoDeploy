@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,8 @@ public class HelloController {
     @Autowired
     private RestTemplate restTemplate;
 
+    private static final Logger logger = LoggerFactory.getLogger(LogController.class);
+
     @GetMapping("/greeting")
     public String greeting() {
         return "Hello from ServiceA";
@@ -42,10 +46,10 @@ public class HelloController {
         deviceInfo += "Client IP Address: " + clientIpAddress;
 
         // 추가적인 로깅 (로그 파일이나 콘솔에 출력)
-        System.out.println("Device Info: " + deviceInfo);
+        logger.info("Device Info: " + deviceInfo);
 
         // 필요한 경우, 분석하여 특정 정보를 추출할 수 있습니다.
 
-        return deviceInfo;
+        return "안녕 여연아";
     }
 }
