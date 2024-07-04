@@ -4,8 +4,11 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class HelloController {
@@ -27,5 +30,22 @@ public class HelloController {
     @GetMapping("/greeting")
     public String greeting() {
         return "Hello from ServiceA";
+    }
+
+    @GetMapping("/forcha")
+    public String getDeviceInfo(@RequestHeader(value = "User-Agent") String userAgent, HttpServletRequest request) {
+        // 클라이언트 IP 주소
+        String clientIpAddress = request.getRemoteAddr();
+
+        // User-Agent 정보 출력
+        String deviceInfo = "User-Agent: " + userAgent + "\n";
+        deviceInfo += "Client IP Address: " + clientIpAddress;
+
+        // 추가적인 로깅 (로그 파일이나 콘솔에 출력)
+        System.out.println("Device Info: " + deviceInfo);
+
+        // 필요한 경우, 분석하여 특정 정보를 추출할 수 있습니다.
+
+        return deviceInfo;
     }
 }
