@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowfall Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #FFF;
+            font-size: 1em;
+            user-select: none;
+            z-index: 1000;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const snowflakeCount = 100;
+        const snowflakeCharacters = ['❄', '❅', '❆'];
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = snowflakeCharacters[Math.floor(Math.random() * snowflakeCharacters.length)];
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        for (let i = 0; i < snowflakeCount; i++) {
+            setTimeout(createSnowflake, i * 200);
+        }
+
+        setInterval(createSnowflake, 500);
+    });
+</script>
+</body>
+</html>
